@@ -1,48 +1,56 @@
-<!doctype html>
-<html lang="ko">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>카카오톡 메시지 공유</title>
-  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <script>
-    Kakao.init('b9a150ba7c273d7bc9534df138b54c6e'); // 카카오 디벨로퍼스의 JavaScript 키
-    function shareKakao() {
-      Kakao.Share.sendDefault({
-        objectType: 'feed',
-        content: {
-          title: '부산 오션뷰 상가 매입제안서 ',
-          description: '링크를 눌러 매물을 확인해보세요',
-          imageUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
-          link: {
-            webUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
-            mobileWebUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90'
-          }
-        },
-        buttons: [
-          {
-            title: '더 자세히 보기 ▶',
-            link: {
-              webUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
-              mobileWebUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90'
-            }
-          }
-        ]
-      });
-    }
-  </script>
-  <style>
-    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif; padding: 32px; }
-    .cta { display:inline-flex; align-items:center; gap:10px; padding:14px 18px; border:1px solid #eee; border-radius:14px; cursor:pointer; }
-    .cta img { width:28px; height:28px; display:block; }
-  </style>
+<title>카카오톡 버튼있는 메시지 전송하기</title>
+<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-  <h2>카카오톡으로 메시지 보내기</h2>
-  <p>버튼을 누르면 카카오톡 공유창이 열리고, 카드 버튼을 누르면 미리캔버스로 이동합니다.</p>
-  <button class="cta" type="button" onclick="shareKakao()">
-    <img alt="K" src="https://cdn-icons-png.flaticon.com/512/2111/2111469.png" />
-    카카오톡으로 공유하기
-  </button>
-</body>
+<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
+<a id="kakao-link-btn" href="javascript:sendLink()">
+  <img
+    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+  />
+</a>
+<script type="text/javascript">
+ Kakao.init('b9a150ba7c273d7bc9534df138b54c6e’);
+  function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '부산 오션뷰 상가 매입제안서',
+        description: '상가 자세히 보러가기 ',
+        imageUrl:
+          'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
+        link: {
+          mobileWebUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
+          webUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
+        },
+      },
+      social: {
+        likeCount: 좋아요 수, //99999가 최대입니다
+        commentCount: 댓글 수, //99999가 최대입니다
+        sharedCount: 공유 수, //99999가 최대입니다
+      },
+      buttons: [
+        {
+          title: ' 상가 자세히 보러가기 ',
+          link: {
+            mobileWebUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
+            webUrl: 'https://www.miricanvas.com/v2/design2/v/a173f7ca-39e0-419e-be44-f971407cfc90',
+          },
+        },
+      ],
+    })
+  }
+</script>
+<!-- www.blackcats4567.com -->
+<!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
+  </body>
 </html>
+
+
+
+
+
+
+
+
